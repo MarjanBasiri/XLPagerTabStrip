@@ -36,13 +36,14 @@ class NavButtonBarExampleViewController: ButtonBarPagerTabStripViewController {
         super.viewDidLoad()
 
         buttonBarView.removeFromSuperview()
-        navigationController?.navigationBar.addSubview(buttonBarView)
+//        navigationController?.navigationBar.addSubview(buttonBarView)
+        self.view.addSubview(buttonBarView)
 
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
 
-            oldCell?.label.textColor = UIColor(white: 1, alpha: 0.6)
-            newCell?.label.textColor = .white
+            oldCell?.label.textColor = .darkGray//UIColor(white: 1, alpha: 0.6)
+            newCell?.label.textColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
 
             if animated {
                 UIView.animate(withDuration: 0.1, animations: { () -> Void in
